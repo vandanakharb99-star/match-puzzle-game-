@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>🍬 Pi Sweet Match 3 🍬 | Pi Network Authenticated</title>
+    <title>🧩 Puzzle Match Pi 🧩 | Pi Network Authenticated</title>
     <style>
         * {
             user-select: none;
@@ -264,6 +264,17 @@
             border-radius: 40px;
         }
 
+        /* Celebration animation */
+        @keyframes celebrate {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.8; text-shadow: 0 0 20px gold; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .celebration-text {
+            animation: celebrate 0.3s ease-in-out;
+        }
+
         @media (max-width: 550px) {
             .game-container { padding: 8px 10px 14px 10px; }
             .card { padding: 4px 8px; min-width: 65px; }
@@ -304,6 +315,13 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Blast particle effect */
+        .blast-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1001;
+        }
     </style>
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
 </head>
@@ -311,7 +329,7 @@
     <!-- Auth Overlay -->
     <div id="authOverlay" class="auth-overlay">
         <div class="auth-card">
-            <h2>🍬 Pi Sweet Match</h2>
+            <h2>🧩 Puzzle Match Pi</h2>
             <p>Sign in with Pi Network to play and save your progress!</p>
             <button id="signInButton" class="pi-button">🔓 Sign in with Pi</button>
             <div id="authLoading" style="display: none; margin-top: 16px;">
@@ -368,8 +386,7 @@
         // ========== PI NETWORK AUTHENTICATION ==========
         
         // Backend API endpoint (update with your actual backend URL)
-        const BACKEND_URL = window.location.origin + '/api'; // For local dev, you can set to your server
-        // For production, set: const BACKEND_URL = 'https://your-backend.com/api';
+        const BACKEND_URL = window.location.origin + '/api';
         
         let currentUser = null;
         let accessToken = null;
@@ -384,10 +401,9 @@
                 
                 Pi.init({
                     version: "2.0",
-                    sandbox: true // Set to false for production
+                    sandbox: true
                 });
                 
-                // Wait for SDK to be ready
                 setTimeout(resolve, 500);
             });
         }
@@ -396,11 +412,7 @@
         async function authenticateWithPi() {
             try {
                 showAuthLoading(true);
-                
-                // Initialize Pi SDK
                 await initPiSDK();
-                
-                // Request authentication with username scope
                 const authResult = await Pi.authenticate(["username"], (result) => {
                     console.log("Auth callback:", result);
                 });
@@ -409,8 +421,6 @@
                 
                 if (authResult && authResult.accessToken) {
                     accessToken = authResult.accessToken;
-                    
-                    // Send token to backend for validation
                     const userData = await validateTokenWithBackend(accessToken);
                     
                     if (userData && userData.uid) {
@@ -420,7 +430,6 @@
                             accessToken: accessToken
                         };
                         
-                        // Save user session
                         localStorage.setItem('pi_user', JSON.stringify({
                             uid: currentUser.uid,
                             username: currentUser.username,
@@ -449,7 +458,6 @@
         // Validate token with Pi Network backend
         async function validateTokenWithBackend(token) {
             try {
-                // Call Pi Network API to verify token and get user info
                 const response = await fetch('https://api.minepi.com/v2/me', {
                     method: 'GET',
                     headers: {
@@ -465,7 +473,6 @@
                 const userData = await response.json();
                 console.log("Pi user data:", userData);
                 
-                // Also send to your backend for session management (optional but recommended)
                 if (BACKEND_URL) {
                     try {
                         await fetch(`${BACKEND_URL}/pi-auth`, {
@@ -479,7 +486,6 @@
                         });
                     } catch (backendError) {
                         console.warn("Backend session save failed:", backendError);
-                        // Continue anyway - frontend still works
                     }
                 }
                 
@@ -496,9 +502,7 @@
             if (savedUser) {
                 try {
                     const user = JSON.parse(savedUser);
-                    // Check if session is less than 7 days old
                     if (user.timestamp && (Date.now() - user.timestamp) < 7 * 24 * 60 * 60 * 1000) {
-                        // Validate token is still valid
                         const validation = await validateTokenWithBackend(user.token);
                         if (validation && validation.uid) {
                             currentUser = {
@@ -558,7 +562,6 @@
             if (show) {
                 gameContainer.classList.add('visible');
                 authOverlay.style.display = 'none';
-                // Start or resume game
                 if (typeof initGame === 'function') {
                     initGame();
                 }
@@ -585,7 +588,7 @@
             }
         }
         
-        // ========== GAME CODE (Same as before with Pi integration) ==========
+        // ========== GAME CODE with Celebration Effects ==========
         
         let grid = [];
         let score = 0;
@@ -597,6 +600,7 @@
         let turnsLeft = 20;
         let levelCompleted = false;
         let particles = [];
+        let celebrationActive = false;
         
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
@@ -611,6 +615,67 @@
             try {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             } catch(e) { console.log("Web Audio not supported"); }
+        }
+        
+        // Celebration sound for 3-match (cheerful chime)
+        function playCelebrationSound() {
+            if(!audioCtx) return;
+            try {
+                const now = audioCtx.currentTime;
+                // Happy celebration chord
+                const freqs = [523.25, 659.25, 783.99];
+                freqs.forEach((freq, i) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.frequency.value = freq;
+                    gain.gain.setValueAtTime(0.12, now + i * 0.05);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.05 + 0.35);
+                    osc.start(now + i * 0.05);
+                    osc.stop(now + i * 0.05 + 0.35);
+                });
+            } catch(e) {}
+        }
+        
+        // Blast effect for match
+        function createBlastEffect(x, y) {
+            for(let i = 0; i < 12; i++) {
+                const angle = (Math.PI * 2 * i) / 12;
+                const velX = Math.cos(angle) * (Math.random() * 2 + 1);
+                const velY = Math.sin(angle) * (Math.random() * 2 + 1);
+                const div = document.createElement('div');
+                div.className = 'blast-particle';
+                div.style.position = 'fixed';
+                div.style.left = x + 'px';
+                div.style.top = y + 'px';
+                div.style.width = '8px';
+                div.style.height = '8px';
+                div.style.borderRadius = '50%';
+                div.style.background = `hsl(${Math.random() * 60 + 30}, 100%, 60%)`;
+                div.style.pointerEvents = 'none';
+                div.style.zIndex = '1001';
+                document.body.appendChild(div);
+                
+                let posX = x, posY = y;
+                let vx = velX, vy = velY;
+                let life = 0.6;
+                const interval = setInterval(() => {
+                    posX += vx * 5;
+                    posY += vy * 5;
+                    vx *= 0.96;
+                    vy *= 0.96;
+                    life -= 0.05;
+                    div.style.left = posX + 'px';
+                    div.style.top = posY + 'px';
+                    div.style.opacity = life;
+                    div.style.transform = `scale(${life * 1.5})`;
+                    if(life <= 0) {
+                        clearInterval(interval);
+                        div.remove();
+                    }
+                }, 16);
+            }
         }
         
         function playSound(freq = 440, duration = 0.18, volume = 0.1) {
@@ -869,7 +934,31 @@
                         chain++;
                         currentCombo = chain;
                         updateUI();
-                        playSound(440 + pointsGained * 18, 0.2, 0.1);
+                        
+                        // CELEBRATION: For every 3-match (pointsGained > 0), play celebration sound and blast
+                        if(pointsGained > 0) {
+                            playCelebrationSound();
+                            // Add visual celebration on matched groups
+                            for(let grp of groups) {
+                                let center = {x:0, y:0, count:0};
+                                for(let pos of grp) {
+                                    let [pr, pc] = pos.split(',').map(Number);
+                                    let canvasX = pc * TILE_SIZE + TILE_SIZE/2 + canvas.offsetLeft;
+                                    let canvasY = pr * TILE_SIZE + TILE_SIZE/2 + canvas.offsetTop;
+                                    center.x += canvasX;
+                                    center.y += canvasY;
+                                    center.count++;
+                                }
+                                if(center.count) {
+                                    createBlastEffect(center.x/center.count, center.y/center.count);
+                                }
+                            }
+                            // Animate the score display
+                            const scoreEl = document.getElementById('scoreDisplay');
+                            scoreEl.classList.add('celebration-text');
+                            setTimeout(() => scoreEl.classList.remove('celebration-text'), 300);
+                        }
+                        
                         for(let grp of groups) {
                             let center = {x:0, y:0, count:0};
                             for(let pos of grp) {
@@ -1172,8 +1261,8 @@
         function initEventListeners() {
             canvas.addEventListener('click', handleCanvasClick);
             canvas.addEventListener('touchstart', (e) => { e.preventDefault(); handleCanvasClick(e); });
-            resetBtn.addEventListener('click', resetGame);
-            nextLevelBtn.addEventListener('click', advanceToNextLevel);
+            document.getElementById('resetGameBtn').addEventListener('click', resetGame);
+            document.getElementById('nextLevelBtn').addEventListener('click', advanceToNextLevel);
         }
         
         // Pi Auth event listeners
@@ -1190,7 +1279,6 @@
             initAudio();
             initEventListeners();
             
-            // Check for existing session
             const hasSession = await checkExistingSession();
             if (!hasSession) {
                 showGameInterface(false);
@@ -1201,14 +1289,8 @@
                 animate();
             }
             
-            // Auto-trigger authentication on load if no session
             if (!hasSession) {
-                // Small delay to let UI render
-                setTimeout(() => {
-                    // Optional: auto-trigger, but we'll let user click the button
-                    // Uncomment next line for auto-trigger:
-                    // authenticateWithPi();
-                }, 1000);
+                setTimeout(() => {}, 1000);
             } else {
                 animate();
             }
