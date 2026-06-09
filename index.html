@@ -12,12 +12,12 @@
         }
 
         body {
-            background: linear-gradient(145deg, #0f0a1a 0%, #05020a 100%);
+            background: linear-gradient(145deg, #1a0f2e 0%, #0a0512 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Segoe UI', 'Poppins', 'Roboto', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', 'Poppins', 'Roboto', system-ui, sans-serif;
             margin: 0;
             padding: 12px;
         }
@@ -29,7 +29,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(12px);
             z-index: 1000;
             display: flex;
@@ -113,13 +113,12 @@
         }
 
         .game-container {
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(8px);
-            border-radius: 52px;
-            padding: 12px 14px 20px 14px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border-radius: 48px;
+            padding: 16px;
             width: 100%;
-            max-width: 640px;
+            max-width: 650px;
             margin: auto;
             display: none;
         }
@@ -129,130 +128,65 @@
         }
 
         .game-panel {
-            background: #fff8ec;
-            border-radius: 44px;
-            padding: 14px 12px 18px 12px;
-            box-shadow: inset 0 0 0 2px #ffefcf, 0 15px 30px rgba(0, 0, 0, 0.35);
-        }
-
-        canvas {
-            display: block;
-            margin: 0 auto;
-            border-radius: 32px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            background: #fffaec;
-            width: 100%;
-            height: auto;
-            touch-action: manipulation;
+            background: linear-gradient(135deg, #fff8ec 0%, #ffe8cf 100%);
+            border-radius: 40px;
+            padding: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .stats-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 14px;
-            padding: 0 6px;
+            margin-bottom: 16px;
             gap: 8px;
             flex-wrap: wrap;
         }
 
         .card {
             background: #4d2e5b;
-            padding: 5px 12px;
+            padding: 8px 16px;
             border-radius: 60px;
-            box-shadow: inset 0 1px 2px rgba(255, 255, 200, 0.2), 0 4px 0 #2d1d38;
+            box-shadow: 0 4px 0 #2d1d38;
             color: #ffefc0;
             font-weight: bold;
             display: flex;
             align-items: baseline;
-            gap: 6px;
+            gap: 8px;
             flex: 1;
-            min-width: 75px;
+            min-width: 80px;
             justify-content: center;
         }
 
         .card-label {
-            font-size: 0.68rem;
-            letter-spacing: 0.5px;
+            font-size: 0.7rem;
         }
 
         .card-value {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 800;
-            line-height: 1;
             background: linear-gradient(135deg, #FFE0A3, #FFB347);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        .turns-card {
-            background: #2a1e36;
-        }
-
-        .difficulty-card {
-            background: #5c3d6e;
-        }
-
-        .combo-meter {
-            background: #2e2538;
-            border-radius: 60px;
-            padding: 5px 12px;
-            display: flex;
-            align-items: baseline;
-            gap: 5px;
-            box-shadow: inset 0 1px 4px #5f4a6e, 0 4px 0 #1f1528;
-            flex: 1;
-            min-width: 75px;
-            justify-content: center;
-        }
-
         .reset-btn, .next-btn {
             background: #f0bc6e;
             border: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: bold;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 40px;
             color: #3a2347;
             cursor: pointer;
-            font-family: inherit;
-            transition: 0.06s linear;
             box-shadow: 0 4px 0 #aa6f3c;
-            touch-action: manipulation;
-            min-width: 65px;
+            transition: 0.05s linear;
         }
 
         .reset-btn:active, .next-btn:active {
             transform: translateY(3px);
             box-shadow: 0 1px 0 #aa6f3c;
-        }
-
-        .progress-area {
-            background: #f3e1be;
-            border-radius: 50px;
-            padding: 8px 12px;
-            font-weight: bold;
-            text-align: center;
-            font-size: 0.78rem;
-            margin-top: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .level-goal {
-            background: #5c3d6e;
-            padding: 5px 10px;
-            border-radius: 40px;
-            color: #ffdd99;
-            font-weight: bold;
-            flex: 2;
-            text-align: center;
-            font-size: 0.72rem;
         }
 
         .auth-status {
@@ -264,42 +198,75 @@
             border-radius: 40px;
         }
 
-        /* Celebration animation */
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            background: #2a1a35;
+            width: 100%;
+            height: auto;
+            touch-action: manipulation;
+        }
+
+        .progress-area {
+            background: #f3e1be;
+            border-radius: 40px;
+            padding: 10px 16px;
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .level-goal {
+            background: #5c3d6e;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: #ffdd99;
+            font-weight: bold;
+            font-size: 0.8rem;
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Celebration Animations */
         @keyframes celebrate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); text-shadow: 0 0 30px gold; }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes blastPulse {
             0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.8; text-shadow: 0 0 20px gold; }
-            100% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
         }
 
-        .celebration-text {
-            animation: celebrate 0.3s ease-in-out;
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
-        @media (max-width: 550px) {
-            .game-container { padding: 8px 10px 14px 10px; }
-            .card { padding: 4px 8px; min-width: 65px; }
-            .card-value { font-size: 1rem; }
-            .card-label { font-size: 0.6rem; }
-            .combo-meter { padding: 4px 8px; min-width: 65px; }
-            .reset-btn, .next-btn { padding: 5px 8px; font-size: 0.7rem; min-width: 55px; }
-            .level-goal { font-size: 0.65rem; }
+        .celebration-effect {
+            animation: celebrate 0.4s ease;
         }
 
-        .turns-warning {
-            animation: pulseWarning 0.5s ease;
+        .level-celebrate {
+            animation: celebrate 0.5s ease;
+            color: #ffd700 !important;
         }
 
-        @keyframes pulseWarning {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); text-shadow: 0 0 4px red; }
-        }
-        
-        .difficulty-text {
-            font-size: 0.65rem;
-            background: #ffcf9a;
-            padding: 2px 8px;
-            border-radius: 20px;
-            color: #3a2347;
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff0;
+            pointer-events: none;
+            z-index: 2000;
+            animation: confettiFall 2s ease-out forwards;
         }
 
         .loading-spinner {
@@ -316,11 +283,11 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Blast particle effect */
-        .blast-particle {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1001;
+        @media (max-width: 550px) {
+            .card { padding: 5px 10px; min-width: 65px; }
+            .card-value { font-size: 1rem; }
+            .card-label { font-size: 0.6rem; }
+            .reset-btn, .next-btn { padding: 5px 12px; font-size: 0.75rem; }
         }
     </style>
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
@@ -350,32 +317,26 @@
                     <button id="manualSignOutBtn" class="reset-btn logout-btn" style="display: none; background:#d9534f;">🚪</button>
                 </div>
                 <div class="card">
-                    <span class="card-label">🔥 LVL</span>
+                    <span class="card-label">🔥 LEVEL</span>
                     <span class="card-value" id="levelDisplay">1</span>
                 </div>
-                <div class="card turns-card">
-                    <span class="card-label">🔄 TURNS</span>
-                    <span class="card-value" id="turnsDisplay">20</span>
-                </div>
-                <div class="card difficulty-card">
-                    <span class="card-label">📈 DIFF</span>
-                    <span class="card-value" id="difficultyDisplay">★☆☆</span>
-                </div>
                 <div class="card">
-                    <span class="card-label">🍬 SCORE</span>
+                    <span class="card-label">🎯 SCORE</span>
                     <span class="card-value" id="scoreDisplay">0</span>
                 </div>
-                <div class="combo-meter">
-                    <span class="card-label">⚡ CHAIN</span>
+                <div class="card">
+                    <span class="card-label">⚡ COMBO</span>
                     <span class="card-value" id="comboDisplay">0</span>
                 </div>
-                <button class="reset-btn" id="resetGameBtn">🌀</button>
+                <button class="reset-btn" id="resetBtn">🔄 NEW</button>
             </div>
+            
             <canvas id="gameCanvas" width="540" height="540"></canvas>
+            
             <div class="progress-area">
-                <span>🎯 NEED: <span id="targetScoreSpan">15</span> matches</span>
-                <div class="level-goal" id="levelMessage">
-                    1 match = 1 point
+                <span>🎯 NEED: <span id="targetScore">15</span> matches</span>
+                <div class="level-goal" id="messageArea">
+                    ✨ Match 3 candies to score! ✨
                 </div>
                 <button class="next-btn" id="nextLevelBtn">⭐ NEXT</button>
             </div>
@@ -384,9 +345,6 @@
 
     <script>
         // ========== PI NETWORK AUTHENTICATION ==========
-        
-        // Backend API endpoint (update with your actual backend URL)
-        const BACKEND_URL = window.location.origin + '/api';
         
         let currentUser = null;
         let accessToken = null;
@@ -416,8 +374,6 @@
                 const authResult = await Pi.authenticate(["username"], (result) => {
                     console.log("Auth callback:", result);
                 });
-                
-                console.log("Auth result:", authResult);
                 
                 if (authResult && authResult.accessToken) {
                     accessToken = authResult.accessToken;
@@ -472,23 +428,6 @@
                 
                 const userData = await response.json();
                 console.log("Pi user data:", userData);
-                
-                if (BACKEND_URL) {
-                    try {
-                        await fetch(`${BACKEND_URL}/pi-auth`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                token: token,
-                                uid: userData.uid,
-                                username: userData.username
-                            })
-                        });
-                    } catch (backendError) {
-                        console.warn("Backend session save failed:", backendError);
-                    }
-                }
-                
                 return userData;
             } catch (error) {
                 console.error("Token validation error:", error);
@@ -588,98 +527,47 @@
             }
         }
         
-        // ========== GAME CODE with Celebration Effects ==========
-        
-        let grid = [];
-        let score = 0;
-        let currentCombo = 0;
-        let selectedTile = null;
-        let processingMove = false;
-        let currentLevel = 1;
-        let levelTarget = 15;
-        let turnsLeft = 20;
-        let levelCompleted = false;
-        let particles = [];
-        let celebrationActive = false;
+        // ========== MATCH-3 GAME WITH LEVEL SCORE SAVING & CELEBRATION ==========
         
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
-        let ROWS = 8, COLS = 8;
-        let TILE_SIZE = canvas.width / COLS;
-        const CANDY_TYPES = 6;
+        const ROWS = 8;
+        const COLS = 8;
+        const TILE_SIZE = canvas.width / COLS;
+        const CANDY_TYPES = 5;
+        
+        // Game state
+        let grid = [];
+        let currentLevel = 1;
+        let levelScore = 0;
+        let totalScore = 0;
+        let combo = 0;
+        let selectedTile = null;
+        let processingMove = false;
+        let levelTarget = 15;
+        let fallingCandies = [];
+        let isFalling = false;
+        let levelCompleteFlag = false;
+        
+        // DOM elements
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const levelDisplay = document.getElementById('levelDisplay');
+        const targetDisplay = document.getElementById('targetScore');
+        const comboDisplay = document.getElementById('comboDisplay');
+        const messageArea = document.getElementById('messageArea');
         
         // Audio
         let audioCtx = null;
+        
         function initAudio() {
-            if(audioCtx) return;
+            if (audioCtx) return;
             try {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            } catch(e) { console.log("Web Audio not supported"); }
+            } catch(e) { console.log("Audio not supported"); }
         }
         
-        // Celebration sound for 3-match (cheerful chime)
-        function playCelebrationSound() {
-            if(!audioCtx) return;
-            try {
-                const now = audioCtx.currentTime;
-                // Happy celebration chord
-                const freqs = [523.25, 659.25, 783.99];
-                freqs.forEach((freq, i) => {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.frequency.value = freq;
-                    gain.gain.setValueAtTime(0.12, now + i * 0.05);
-                    gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.05 + 0.35);
-                    osc.start(now + i * 0.05);
-                    osc.stop(now + i * 0.05 + 0.35);
-                });
-            } catch(e) {}
-        }
-        
-        // Blast effect for match
-        function createBlastEffect(x, y) {
-            for(let i = 0; i < 12; i++) {
-                const angle = (Math.PI * 2 * i) / 12;
-                const velX = Math.cos(angle) * (Math.random() * 2 + 1);
-                const velY = Math.sin(angle) * (Math.random() * 2 + 1);
-                const div = document.createElement('div');
-                div.className = 'blast-particle';
-                div.style.position = 'fixed';
-                div.style.left = x + 'px';
-                div.style.top = y + 'px';
-                div.style.width = '8px';
-                div.style.height = '8px';
-                div.style.borderRadius = '50%';
-                div.style.background = `hsl(${Math.random() * 60 + 30}, 100%, 60%)`;
-                div.style.pointerEvents = 'none';
-                div.style.zIndex = '1001';
-                document.body.appendChild(div);
-                
-                let posX = x, posY = y;
-                let vx = velX, vy = velY;
-                let life = 0.6;
-                const interval = setInterval(() => {
-                    posX += vx * 5;
-                    posY += vy * 5;
-                    vx *= 0.96;
-                    vy *= 0.96;
-                    life -= 0.05;
-                    div.style.left = posX + 'px';
-                    div.style.top = posY + 'px';
-                    div.style.opacity = life;
-                    div.style.transform = `scale(${life * 1.5})`;
-                    if(life <= 0) {
-                        clearInterval(interval);
-                        div.remove();
-                    }
-                }, 16);
-            }
-        }
-        
-        function playSound(freq = 440, duration = 0.18, volume = 0.1) {
-            if(!audioCtx) return;
+        function playSound(freq, duration, volume) {
+            if (!audioCtx) return;
             try {
                 const now = audioCtx.currentTime;
                 const osc = audioCtx.createOscillator();
@@ -687,514 +575,551 @@
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
                 osc.frequency.value = freq;
-                gain.gain.setValueAtTime(volume, now);
-                gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+                gain.gain.setValueAtTime(volume || 0.1, now);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + (duration || 0.2));
                 osc.start();
-                osc.stop(now + duration);
+                osc.stop(now + (duration || 0.2));
             } catch(e) {}
         }
         
-        // Difficulty functions
-        function getLevelTarget(level) {
-            let base = 15 + Math.floor((level-1) * 3.2);
-            if(level > 25) base = 85 + Math.floor((level-25) * 2.5);
-            if(level > 55) base = 150 + Math.floor((level-55) * 2);
-            if(level > 85) base = 210 + Math.floor((level-85) * 1.5);
-            return Math.min(base, 380);
+        function playDropSound() {
+            playSound(350, 0.08, 0.07);
         }
         
-        function getTurnsForLevel(level) {
-            let turns = 21 - Math.floor((level-1) / 2.2);
-            if(level > 15) turns = 15 - Math.floor((level-15) / 3);
-            if(level > 35) turns = 10 - Math.floor((level-35) / 5);
-            if(level > 60) turns = 6 - Math.floor((level-60) / 8);
-            return Math.max(4, Math.min(21, turns));
+        function playMatchCelebration(matchCount) {
+            if (!audioCtx) return;
+            const baseFreq = 523.25;
+            for (let i = 0; i < Math.min(matchCount, 3); i++) {
+                setTimeout(() => {
+                    playSound(baseFreq + (i * 100), 0.15, 0.12);
+                }, i * 50);
+            }
         }
         
-        function getDifficultyStars(level) {
-            if(level < 8) return "★☆☆";
-            if(level < 20) return "★★☆";
-            if(level < 40) return "★★★";
-            if(level < 65) return "★★★★";
-            return "★★★★★";
+        function playLevelCompleteFanfare() {
+            if (!audioCtx) return;
+            const notes = [523.25, 659.25, 783.99, 1046.50];
+            notes.forEach((freq, i) => {
+                setTimeout(() => {
+                    playSound(freq, 0.4, 0.15);
+                }, i * 150);
+            });
         }
         
-        function getBlockerProbability(level) {
-            if(level < 15) return 0;
-            if(level < 30) return 0.06;
-            if(level < 50) return 0.12;
-            return 0.18;
+        function createConfetti() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffa500', '#ff69b4'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.height = Math.random() * 10 + 5 + 'px';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0%';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 2000);
+                }, i * 15);
+            }
         }
         
-        function randomCandyWithDifficulty(level) {
-            let prob = getBlockerProbability(level);
-            if(Math.random() < prob) return 8;
-            return Math.floor(Math.random() * CANDY_TYPES) + 1;
+        async function showLevelCompleteCelebration() {
+            levelCompleteFlag = true;
+            scoreDisplay.classList.add('level-celebrate');
+            levelDisplay.classList.add('level-celebrate');
+            playLevelCompleteFanfare();
+            
+            messageArea.innerText = `🎉✨ LEVEL ${currentLevel} COMPLETE! +${levelScore} SCORE SAVED! ✨🎉`;
+            messageArea.style.background = '#f7b05e';
+            messageArea.style.color = '#2d1d38';
+            
+            createConfetti();
+            
+            for (let i = 0; i < 5; i++) {
+                ctx.fillStyle = `rgba(255, 215, 0, ${0.3 - i * 0.05})`;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                await delay(100);
+                drawBoard();
+                await delay(50);
+            }
+            
+            totalScore += levelScore;
+            updateUI();
+            
+            setTimeout(() => {
+                scoreDisplay.classList.remove('level-celebrate');
+                levelDisplay.classList.remove('level-celebrate');
+            }, 1000);
+            
+            levelCompleteFlag = false;
         }
         
         function randomCandy() {
-            return randomCandyWithDifficulty(currentLevel);
+            return Math.floor(Math.random() * CANDY_TYPES) + 1;
         }
         
-        function generateNoMatchBoard() {
-            let newGrid = Array(ROWS).fill().map(() => Array(COLS).fill(0));
-            for(let r = 0; r < ROWS; r++) {
-                for(let c = 0; c < COLS; c++) {
-                    let candidates = [];
-                    for(let t=1; t<=CANDY_TYPES; t++) candidates.push(t);
-                    for(let i = candidates.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
-                    }
-                    let placed = false;
-                    for(let candy of candidates) {
-                        if(c >= 2 && newGrid[r][c-1] === candy && newGrid[r][c-2] === candy) continue;
-                        if(r >= 2 && newGrid[r-1][c] === candy && newGrid[r-2][c] === candy) continue;
-                        newGrid[r][c] = candy;
-                        placed = true;
-                        break;
-                    }
-                    if(!placed) newGrid[r][c] = (r % CANDY_TYPES) + 1;
-                }
+        function loadSavedData() {
+            const savedData = localStorage.getItem(`puzzleMatchPi_${currentUser?.uid || 'guest'}`);
+            if (savedData) {
+                try {
+                    const data = JSON.parse(savedData);
+                    currentLevel = data.currentLevel || 1;
+                    totalScore = data.totalScore || 0;
+                    levelTarget = getLevelTarget(currentLevel);
+                    return true;
+                } catch(e) {}
             }
-            if(currentLevel >= 15) {
-                let blockerCount = Math.min(3, Math.floor(currentLevel / 25) + 1);
-                for(let i=0; i<blockerCount; i++) {
-                    let rr = Math.floor(Math.random() * ROWS);
-                    let cc = Math.floor(Math.random() * COLS);
-                    if(newGrid[rr][cc] <= 6) newGrid[rr][cc] = 8;
-                }
-            }
-            return newGrid;
+            return false;
         }
         
-        function getAllMatches(board) {
-            let matchesSet = new Set();
-            for(let r = 0; r < ROWS; r++) {
-                let run = 1;
-                for(let c = 1; c <= COLS; c++) {
-                    let curr = board[r][c];
-                    let prev = board[r][c-1];
-                    let validCurr = (curr !== 0 && curr !== 7 && curr !== 8 && curr <= CANDY_TYPES);
-                    let validPrev = (prev !== 0 && prev !== 7 && prev !== 8 && prev <= CANDY_TYPES);
-                    if(c < COLS && validCurr && validPrev && curr === prev) {
-                        run++;
+        function saveGameData() {
+            if (!currentUser) return;
+            const saveData = {
+                currentLevel: currentLevel,
+                totalScore: totalScore,
+                lastPlayed: Date.now()
+            };
+            localStorage.setItem(`puzzleMatchPi_${currentUser.uid}`, JSON.stringify(saveData));
+        }
+        
+        function getLevelTarget(level) {
+            let base = 15 + (level - 1) * 2;
+            if (level > 20) base = 45 + (level - 20) * 1.5;
+            if (level > 50) base = 85 + (level - 50) * 1;
+            return Math.min(base, 150);
+        }
+        
+        function initGrid() {
+            grid = Array(ROWS).fill().map(() => Array(COLS).fill(0));
+            for (let r = 1; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    grid[r][c] = randomCandy();
+                }
+            }
+            removeMatchesAndRefill(true);
+        }
+        
+        function getAllMatches() {
+            let matches = new Set();
+            
+            for (let r = 0; r < ROWS; r++) {
+                let runLength = 1;
+                for (let c = 1; c <= COLS; c++) {
+                    if (c < COLS && grid[r][c] !== 0 && grid[r][c] === grid[r][c-1]) {
+                        runLength++;
                     } else {
-                        if(run >= 3) {
-                            for(let i = c - run; i < c; i++) matchesSet.add(`${r},${i}`);
+                        if (runLength >= 3) {
+                            for (let i = c - runLength; i < c; i++) {
+                                if (grid[r][i] !== 0) matches.add(`${r},${i}`);
+                            }
                         }
-                        run = 1;
+                        runLength = 1;
                     }
                 }
             }
-            for(let c = 0; c < COLS; c++) {
-                let run = 1;
-                for(let r = 1; r <= ROWS; r++) {
-                    let curr = board[r][c];
-                    let prev = board[r-1][c];
-                    let validCurr = (curr !== 0 && curr !== 7 && curr !== 8 && curr <= CANDY_TYPES);
-                    let validPrev = (prev !== 0 && prev !== 7 && prev !== 8 && prev <= CANDY_TYPES);
-                    if(r < ROWS && validCurr && validPrev && curr === prev) {
-                        run++;
+            
+            for (let c = 0; c < COLS; c++) {
+                let runLength = 1;
+                for (let r = 1; r <= ROWS; r++) {
+                    if (r < ROWS && grid[r][c] !== 0 && grid[r][c] === grid[r-1][c]) {
+                        runLength++;
                     } else {
-                        if(run >= 3) {
-                            for(let i = r - run; i < r; i++) matchesSet.add(`${i},${c}`);
+                        if (runLength >= 3) {
+                            for (let i = r - runLength; i < r; i++) {
+                                if (grid[i][c] !== 0) matches.add(`${i},${c}`);
+                            }
                         }
-                        run = 1;
+                        runLength = 1;
                     }
                 }
             }
-            return matchesSet;
+            return matches;
         }
         
-        function processSpecialPrism(board, matchPositionsSet) {
-            let prismPositions = [];
-            for(let r = 0; r < ROWS; r++) {
-                let run = 1;
-                for(let c = 1; c <= COLS; c++) {
-                    let curr = board[r][c];
-                    let prev = board[r][c-1];
-                    let valid = (curr !== 0 && curr !== 7 && curr !== 8 && curr <= CANDY_TYPES);
-                    let validPrev = (prev !== 0 && prev !== 7 && prev !== 8 && prev <= CANDY_TYPES);
-                    if(c < COLS && valid && validPrev && curr === prev) run++;
-                    else {
-                        if(run >= 4) {
-                            let start = c - run, end = c - 1;
-                            let midCol = Math.floor((start + end) / 2);
-                            prismPositions.push({row: r, col: midCol});
+        async function animateFalling(fallItems) {
+            isFalling = true;
+            const steps = 8;
+            const stepDelay = 22;
+            
+            for (let step = 0; step <= steps; step++) {
+                fallingCandies = fallItems.map(item => ({
+                    ...item,
+                    progress: step / steps,
+                    startY: item.startRow * TILE_SIZE,
+                    targetY: item.targetRow * TILE_SIZE
+                }));
+                drawBoard();
+                await delay(stepDelay);
+            }
+            
+            for (let i = 0; i < fallItems.length; i++) {
+                setTimeout(() => playDropSound(), i * 25);
+            }
+            
+            for (let item of fallItems) {
+                grid[item.targetRow][item.col] = item.candyType;
+            }
+            
+            fallingCandies = [];
+            isFalling = false;
+            drawBoard();
+        }
+        
+        async function applyGravityWithAnimation() {
+            let fallItems = [];
+            
+            for (let c = 0; c < COLS; c++) {
+                let columnValues = [];
+                for (let r = ROWS - 1; r >= 0; r--) {
+                    if (grid[r][c] !== 0) {
+                        columnValues.push(grid[r][c]);
+                    }
+                }
+                while (columnValues.length < ROWS) columnValues.push(randomCandy());
+                columnValues.reverse();
+                
+                for (let r = 0; r < ROWS; r++) {
+                    if (grid[r][c] !== columnValues[r]) {
+                        let sourceRow = -1;
+                        for (let s = r + 1; s < ROWS; s++) {
+                            if (grid[s][c] === columnValues[r]) {
+                                sourceRow = s;
+                                break;
+                            }
                         }
-                        run = 1;
+                        fallItems.push({
+                            col: c,
+                            targetRow: r,
+                            candyType: columnValues[r],
+                            startRow: sourceRow === -1 ? -1 : sourceRow,
+                            fromTop: sourceRow === -1
+                        });
                     }
                 }
+                for (let r = 0; r < ROWS; r++) grid[r][c] = columnValues[r];
             }
-            for(let c = 0; c < COLS; c++) {
-                let run = 1;
-                for(let r = 1; r <= ROWS; r++) {
-                    let curr = board[r][c];
-                    let prev = board[r-1][c];
-                    let valid = (curr !== 0 && curr !== 7 && curr !== 8 && curr <= CANDY_TYPES);
-                    let validPrev = (prev !== 0 && prev !== 7 && prev !== 8 && prev <= CANDY_TYPES);
-                    if(r < ROWS && valid && validPrev && curr === prev) run++;
-                    else {
-                        if(run >= 4) {
-                            let start = r - run, end = r - 1;
-                            let midRow = Math.floor((start + end) / 2);
-                            prismPositions.push({row: midRow, col: c});
-                        }
-                        run = 1;
-                    }
-                }
-            }
-            for(let pos of prismPositions) {
-                let key = `${pos.row},${pos.col}`;
-                if(matchPositionsSet.has(key) && board[pos.row][pos.col] !== 8) {
-                    board[pos.row][pos.col] = 7;
-                }
-            }
+            
+            if (fallItems.length > 0) await animateFalling(fallItems);
         }
         
-        function applyGravityAndRefill(board) {
-            for(let c = 0; c < COLS; c++) {
-                let colVals = [];
-                for(let r = ROWS-1; r >= 0; r--) {
-                    if(board[r][c] !== 0 && board[r][c] !== 7 && board[r][c] !== 8) {
-                        colVals.push(board[r][c]);
-                    } else if(board[r][c] === 7) {
-                        colVals.push(7);
-                    } else if(board[r][c] === 8) {
-                        colVals.push(8);
-                    }
-                }
-                while(colVals.length < ROWS) {
-                    colVals.push(randomCandyWithDifficulty(currentLevel));
-                }
-                colVals.reverse();
-                for(let r = 0; r < ROWS; r++) {
-                    board[r][c] = colVals[r];
-                }
+        async function removeMatchesAndRefill(isInitial = false) {
+            let matches = getAllMatches();
+            if (matches.size === 0) return 0;
+            
+            for (let pos of matches) {
+                let [r, c] = pos.split(',').map(Number);
+                createBlastEffect(r, c);
             }
+            for (let pos of matches) {
+                let [r, c] = pos.split(',').map(Number);
+                grid[r][c] = 0;
+            }
+            
+            if (!isInitial && matches.size > 0 && !levelCompleteFlag) {
+                let pointsEarned = Math.floor(matches.size / 3);
+                levelScore += pointsEarned;
+                combo++;
+                updateUI();
+                playMatchCelebration(pointsEarned);
+                showCelebrationEffect();
+                showMessage(`✨ MATCH! +${pointsEarned} point! ✨`);
+            }
+            
+            drawBoard();
+            await delay(100);
+            await applyGravityWithAnimation();
+            drawBoard();
+            await delay(80);
+            return matches.size;
         }
         
-        function addParticleEffect(x, y, count=5) {
-            for(let i=0; i<count; i++) {
-                particles.push({
-                    x: x + (Math.random()-0.5)*TILE_SIZE,
-                    y: y + (Math.random()-0.5)*TILE_SIZE,
-                    vx: (Math.random()-0.5)*2.8,
-                    vy: (Math.random()-0.5)*2.5 - 1.2,
-                    life: 0.65,
-                    size: 3 + Math.random()*5,
-                    color: `hsl(${Math.random()*60 + 30}, 85%, 65%)`
-                });
-            }
-        }
-        
-        async function resolveMatchesAndCascade(startCombo) {
-            let totalMatches = 0;
-            let chain = startCombo;
+        async function cascadeMatches() {
+            let hadMatches = false;
             let maxLoop = 20;
             
-            while(maxLoop-- > 0) {
-                let matchSet = getAllMatches(grid);
-                if(matchSet.size === 0) break;
+            while (maxLoop-- > 0 && !levelCompleteFlag) {
+                let matches = getAllMatches();
+                if (matches.size === 0) break;
+                hadMatches = true;
                 
-                processSpecialPrism(grid, matchSet);
-                let finalMatch = getAllMatches(grid);
-                if(finalMatch.size === 0) finalMatch = matchSet;
+                for (let pos of matches) {
+                    let [r, c] = pos.split(',').map(Number);
+                    createBlastEffect(r, c);
+                }
+                for (let pos of matches) {
+                    let [r, c] = pos.split(',').map(Number);
+                    grid[r][c] = 0;
+                }
                 
-                if(finalMatch.size > 0) {
-                    let visited = new Set();
-                    let groups = [];
-                    for(let pos of finalMatch) {
-                        if(visited.has(pos)) continue;
-                        let [r,c] = pos.split(',').map(Number);
-                        let group = new Set();
-                        let queue = [[r,c]];
-                        visited.add(pos);
-                        group.add(pos);
-                        while(queue.length) {
-                            let [cr, cc] = queue.shift();
-                            [[0,1],[0,-1],[1,0],[-1,0]].forEach(([dr,dc]) => {
-                                let nr = cr+dr, nc = cc+dc;
-                                let key = `${nr},${nc}`;
-                                if(finalMatch.has(key) && !visited.has(key)) {
-                                    visited.add(key);
-                                    group.add(key);
-                                    queue.push([nr,nc]);
-                                }
-                            });
-                        }
-                        if(group.size >= 3) groups.push(group);
-                    }
-                    
-                    let pointsGained = groups.length;
-                    if(pointsGained > 0) {
-                        totalMatches += pointsGained;
-                        score += pointsGained;
-                        chain++;
-                        currentCombo = chain;
-                        updateUI();
-                        
-                        // CELEBRATION: For every 3-match (pointsGained > 0), play celebration sound and blast
-                        if(pointsGained > 0) {
-                            playCelebrationSound();
-                            // Add visual celebration on matched groups
-                            for(let grp of groups) {
-                                let center = {x:0, y:0, count:0};
-                                for(let pos of grp) {
-                                    let [pr, pc] = pos.split(',').map(Number);
-                                    let canvasX = pc * TILE_SIZE + TILE_SIZE/2 + canvas.offsetLeft;
-                                    let canvasY = pr * TILE_SIZE + TILE_SIZE/2 + canvas.offsetTop;
-                                    center.x += canvasX;
-                                    center.y += canvasY;
-                                    center.count++;
-                                }
-                                if(center.count) {
-                                    createBlastEffect(center.x/center.count, center.y/center.count);
-                                }
-                            }
-                            // Animate the score display
-                            const scoreEl = document.getElementById('scoreDisplay');
-                            scoreEl.classList.add('celebration-text');
-                            setTimeout(() => scoreEl.classList.remove('celebration-text'), 300);
-                        }
-                        
-                        for(let grp of groups) {
-                            let center = {x:0, y:0, count:0};
-                            for(let pos of grp) {
-                                let [pr, pc] = pos.split(',').map(Number);
-                                center.x += pc * TILE_SIZE + TILE_SIZE/2;
-                                center.y += pr * TILE_SIZE + TILE_SIZE/2;
-                                center.count++;
-                            }
-                            if(center.count) addParticleEffect(center.x/center.count, center.y/center.count, 6);
-                        }
-                        for(let pos of finalMatch) {
-                            let [r,c] = pos.split(',').map(Number);
-                            if(grid[r][c] !== 8) grid[r][c] = 0;
-                        }
-                        applyGravityAndRefill(grid);
-                        drawBoard();
-                        await delay(65);
-                    } else break;
-                } else break;
-            }
-            if(totalMatches === 0) {
-                currentCombo = 0;
+                let pointsEarned = Math.floor(matches.size / 3);
+                levelScore += pointsEarned;
+                combo++;
                 updateUI();
+                playMatchCelebration(pointsEarned);
+                showCelebrationEffect();
+                showMessage(`✨ MATCH! +${pointsEarned} point! ✨`);
+                
+                drawBoard();
+                await delay(100);
+                await applyGravityWithAnimation();
+                drawBoard();
+                await delay(80);
+                
+                if (levelScore >= levelTarget && !levelCompleteFlag) {
+                    await showLevelCompleteCelebration();
+                    saveGameData();
+                    break;
+                }
             }
-            return totalMatches;
+            return hadMatches;
         }
         
-        function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+        function isSwapValid(r1, c1, r2, c2) {
+            let temp = grid[r1][c1];
+            grid[r1][c1] = grid[r2][c2];
+            grid[r2][c2] = temp;
+            let hasMatch = getAllMatches().size > 0;
+            temp = grid[r1][c1];
+            grid[r1][c1] = grid[r2][c2];
+            grid[r2][c2] = temp;
+            return hasMatch;
+        }
         
-        async function trySwap(r1,c1, r2,c2) {
-            if(processingMove) return false;
-            if(levelCompleted) return false;
-            if(turnsLeft <= 0) return false;
-            if(grid[r1][c1] === 8 || grid[r2][c2] === 8) return false;
+        async function performSwap(r1, c1, r2, c2) {
+            if (processingMove || isFalling || levelCompleteFlag) return false;
+            if (grid[r1][c1] === 0 || grid[r2][c2] === 0) {
+                playSound(300, 0.15, 0.08);
+                showMessage("❌ Can't swap empty space!", true);
+                return false;
+            }
             
             let temp = grid[r1][c1];
             grid[r1][c1] = grid[r2][c2];
             grid[r2][c2] = temp;
-            let matches = getAllMatches(grid);
-            if(matches.size === 0) {
+            
+            if (getAllMatches().size === 0) {
                 temp = grid[r1][c1];
                 grid[r1][c1] = grid[r2][c2];
                 grid[r2][c2] = temp;
+                playSound(300, 0.15, 0.08);
+                showMessage("❌ No match! Try again", true);
                 return false;
             }
             
-            turnsLeft--;
-            updateTurnsDisplay();
-            playSound(523,0.12,0.1);
             processingMove = true;
+            playSound(523, 0.1, 0.1);
             drawBoard();
             await delay(70);
-            
-            let matchesMade = await resolveMatchesAndCascade(currentCombo);
+            await cascadeMatches();
             processingMove = false;
             drawBoard();
-            updateUI();
             return true;
         }
         
-        async function activatePrism(row, col) {
-            if(processingMove || grid[row][col] !== 7) return false;
-            if(levelCompleted) return false;
-            processingMove = true;
-            playSound(880,0.2,0.18);
-            for(let c=0; c<COLS; c++) {
-                if(grid[row][c] !== 0) addParticleEffect(c*TILE_SIZE+TILE_SIZE/2, row*TILE_SIZE+TILE_SIZE/2, 3);
-                grid[row][c] = 0;
-            }
-            for(let r=0; r<ROWS; r++) {
-                if(grid[r][col] !== 0 && r !== row) addParticleEffect(col*TILE_SIZE+TILE_SIZE/2, r*TILE_SIZE+TILE_SIZE/2, 3);
-                grid[r][col] = 0;
-            }
-            drawBoard();
-            await delay(160);
-            applyGravityAndRefill(grid);
-            drawBoard();
-            await delay(90);
-            await resolveMatchesAndCascade(currentCombo);
-            processingMove = false;
-            drawBoard();
-            updateUI();
-            return true;
-        }
-        
-        const scoreSpan = document.getElementById('scoreDisplay');
-        const comboSpan = document.getElementById('comboDisplay');
-        const levelSpan = document.getElementById('levelDisplay');
-        const targetSpan = document.getElementById('targetScoreSpan');
-        const levelMsgSpan = document.getElementById('levelMessage');
-        const turnsDisplaySpan = document.getElementById('turnsDisplay');
-        const difficultyDisplaySpan = document.getElementById('difficultyDisplay');
-        
-        function updateTurnsDisplay() {
-            turnsDisplaySpan.innerText = turnsLeft;
-            if(turnsLeft <= 2 && turnsLeft > 0 && !levelCompleted) {
-                turnsDisplaySpan.style.color = "#ff8888";
-                turnsDisplaySpan.style.animation = "pulseWarning 0.5s";
-                setTimeout(() => { turnsDisplaySpan.style.animation = ""; }, 500);
-            } else {
-                turnsDisplaySpan.style.color = "";
-            }
-        }
-        
-        function updateUI() {
-            scoreSpan.innerText = Math.floor(score);
-            comboSpan.innerText = currentCombo;
-            levelSpan.innerText = currentLevel;
-            targetSpan.innerText = levelTarget;
-            difficultyDisplaySpan.innerText = getDifficultyStars(currentLevel);
-            updateTurnsDisplay();
-            
-            if(score >= levelTarget && !levelCompleted) {
-                levelCompleted = true;
-                levelMsgSpan.innerText = "🎉 LEVEL COMPLETE! Press NEXT 🎉";
-                levelMsgSpan.style.background = "#f7b05e";
-                playSound(659,0.25,0.16);
-                playSound(880,0.25,0.16);
-            } else if(score < levelTarget && !levelCompleted) {
-                if(turnsLeft > 0) {
-                    levelMsgSpan.innerText = `🔒 NEED ${levelTarget - Math.floor(score)} matches | ${turnsLeft} turns left 🔒`;
-                } else {
-                    levelMsgSpan.innerText = `💀 OUT OF TURNS! ${score}/${levelTarget} matches 💀`;
-                }
-                levelMsgSpan.style.background = "#5c3d6e";
-                levelMsgSpan.style.color = "#ffdd99";
-            }
-        }
-        
-        function advanceToNextLevel() {
-            if(processingMove) return;
-            if(score >= levelTarget) {
+        async function nextLevel() {
+            if (processingMove || isFalling) return;
+            if (levelScore >= levelTarget) {
+                totalScore += levelScore;
                 currentLevel++;
                 levelTarget = getLevelTarget(currentLevel);
-                turnsLeft = getTurnsForLevel(currentLevel);
-                grid = generateNoMatchBoard();
+                levelScore = 0;
+                combo = 0;
                 selectedTile = null;
-                currentCombo = 0;
-                levelCompleted = false;
-                drawBoard();
+                initGrid();
                 updateUI();
-                playSound(523,0.2,0.13);
-                playSound(659,0.2,0.13);
+                drawBoard();
+                saveGameData();
+                showMessage(`🌟 LEVEL ${currentLevel}! Need ${levelTarget} matches 🌟`);
+                playSound(523, 0.15, 0.1);
+                playSound(659, 0.15, 0.1);
+            } else {
+                showMessage(`❌ Need ${levelTarget - levelScore} more matches!`, true);
+                playSound(300, 0.2, 0.1);
             }
         }
         
         function resetGame() {
-            if(processingMove) return;
+            if (processingMove) return;
             currentLevel = 1;
-            score = 0;
-            currentCombo = 0;
             levelTarget = getLevelTarget(1);
-            turnsLeft = getTurnsForLevel(1);
-            levelCompleted = false;
+            levelScore = 0;
+            totalScore = 0;
+            combo = 0;
             selectedTile = null;
-            grid = generateNoMatchBoard();
+            initGrid();
             updateUI();
             drawBoard();
-            playSound(400,0.2,0.1);
+            saveGameData();
+            showMessage("🌀 Game Reset! Progress saved! 🌀");
+            playSound(400, 0.2, 0.1);
         }
+        
+        function showCelebrationEffect() {
+            comboDisplay.classList.add('celebration-effect');
+            scoreDisplay.classList.add('celebration-effect');
+            setTimeout(() => {
+                comboDisplay.classList.remove('celebration-effect');
+                scoreDisplay.classList.remove('celebration-effect');
+            }, 300);
+        }
+        
+        function createBlastEffect(row, col) {
+            const rect = canvas.getBoundingClientRect();
+            const x = col * TILE_SIZE + TILE_SIZE / 2 + rect.left;
+            const y = row * TILE_SIZE + TILE_SIZE / 2 + rect.top;
+            for (let i = 0; i < 10; i++) {
+                const div = document.createElement('div');
+                div.style.position = 'fixed';
+                div.style.left = x + 'px';
+                div.style.top = y + 'px';
+                div.style.width = '6px';
+                div.style.height = '6px';
+                div.style.borderRadius = '50%';
+                div.style.backgroundColor = `hsl(${Math.random() * 60 + 30}, 100%, 60%)`;
+                div.style.pointerEvents = 'none';
+                div.style.zIndex = '1000';
+                div.style.animation = 'blastPulse 0.3s ease-out forwards';
+                document.body.appendChild(div);
+                setTimeout(() => div.remove(), 300);
+            }
+        }
+        
+        function showMessage(msg, isError = false) {
+            messageArea.innerText = msg;
+            messageArea.style.background = isError ? '#d9534f' : '#5c3d6e';
+            messageArea.style.color = '#ffdd99';
+            setTimeout(() => {
+                if (levelScore >= levelTarget) {
+                    messageArea.innerText = '🎉 LEVEL COMPLETE! Press NEXT 🎉';
+                    messageArea.style.background = '#f7b05e';
+                    messageArea.style.color = '#2d1d38';
+                } else {
+                    messageArea.innerText = `✨ Need ${levelTarget - levelScore} more matches! ✨`;
+                    messageArea.style.background = '#5c3d6e';
+                    messageArea.style.color = '#ffdd99';
+                }
+            }, 2000);
+        }
+        
+        function updateUI() {
+            scoreDisplay.innerText = levelScore;
+            levelDisplay.innerText = currentLevel;
+            targetDisplay.innerText = levelTarget;
+            comboDisplay.innerText = combo;
+            if (levelScore >= levelTarget) {
+                messageArea.innerText = '🎉 LEVEL COMPLETE! Press NEXT 🎉';
+                messageArea.style.background = '#f7b05e';
+                messageArea.style.color = '#2d1d38';
+            }
+        }
+        
+        function delay(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
         
         function drawBoard() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for(let r=0; r<ROWS; r++) {
-                for(let c=0; c<COLS; c++) {
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
                     let x = c * TILE_SIZE;
                     let y = r * TILE_SIZE;
+                    ctx.fillStyle = "#2a1a35";
+                    ctx.fillRect(x, y, TILE_SIZE, TILE_SIZE);
                     ctx.fillStyle = "#fff2df";
                     ctx.beginPath();
-                    ctx.roundRect(x+2, y+2, TILE_SIZE-4, TILE_SIZE-4, 10);
+                    ctx.roundRect(x + 2, y + 2, TILE_SIZE - 4, TILE_SIZE - 4, 10);
                     ctx.fill();
                     ctx.fillStyle = "#ffe1b3";
                     ctx.beginPath();
-                    ctx.roundRect(x, y, TILE_SIZE-2, TILE_SIZE-2, 12);
+                    ctx.roundRect(x, y, TILE_SIZE - 2, TILE_SIZE - 2, 12);
                     ctx.fill();
                     
-                    let type = grid[r][c];
-                    let icon = "🍬";
-                    if(type === 1) icon = "🍎";
-                    else if(type === 2) icon = "🍊";
-                    else if(type === 3) icon = "🍋";
-                    else if(type === 4) icon = "🍇";
-                    else if(type === 5) icon = "🍒";
-                    else if(type === 6) icon = "🍬";
-                    else if(type === 7) icon = "✨";
-                    else if(type === 8) icon = "🪨";
-                    
-                    ctx.font = `${Math.floor(TILE_SIZE * 0.52)}px "Segoe UI Emoji"`;
-                    ctx.textAlign = "center";
-                    ctx.textBaseline = "middle";
-                    
-                    if(type === 7) {
-                        ctx.fillStyle = "#FFD966";
-                        ctx.fillText("🌟", x + TILE_SIZE/2, y + TILE_SIZE/2);
-                        ctx.fillStyle = "#f0b27a";
-                        ctx.fillText(icon, x + TILE_SIZE/2 - 2, y + TILE_SIZE/2 - 2);
-                    } else if(type === 8) {
-                        ctx.fillStyle = "#8B5A2B";
-                        ctx.fillText("🪨", x + TILE_SIZE/2, y + TILE_SIZE/2);
-                    } else {
-                        ctx.fillStyle = "#2d1f35";
-                        ctx.fillText(icon, x + TILE_SIZE/2, y + TILE_SIZE/2);
+                    let candyType = grid[r][c];
+                    let drawY = y;
+                    for (let falling of fallingCandies) {
+                        if (falling.targetRow === r && falling.col === c) {
+                            candyType = falling.candyType;
+                            if (falling.fromTop) {
+                                drawY = -TILE_SIZE + (falling.progress * (TILE_SIZE * (r + 1)));
+                            } else if (falling.startRow >= 0) {
+                                drawY = falling.startRow * TILE_SIZE + (falling.targetRow * TILE_SIZE - falling.startRow * TILE_SIZE) * falling.progress;
+                            }
+                            break;
+                        }
                     }
                     
-                    if(selectedTile && selectedTile.row === r && selectedTile.col === c) {
+                    if (candyType !== 0) {
+                        let emoji = "🍬", shadowColor = "#2d1f35";
+                        switch(candyType) {
+                            case 1: emoji = "🍎"; shadowColor = "#c72a48"; break;
+                            case 2: emoji = "🍊"; shadowColor = "#ffa500"; break;
+                            case 3: emoji = "🍋"; shadowColor = "#f9e45b"; break;
+                            case 4: emoji = "🍇"; shadowColor = "#9370DB"; break;
+                            case 5: emoji = "🍒"; shadowColor = "#e34234"; break;
+                        }
+                        ctx.font = `${Math.floor(TILE_SIZE * 0.55)}px "Segoe UI Emoji"`;
+                        ctx.textAlign = "center";
+                        ctx.textBaseline = "middle";
+                        ctx.fillStyle = "#8B7355";
+                        ctx.fillText(emoji, x + TILE_SIZE / 2 + 1, drawY + TILE_SIZE / 2 + 1);
+                        ctx.fillStyle = shadowColor;
+                        ctx.fillText(emoji, x + TILE_SIZE / 2, drawY + TILE_SIZE / 2);
+                    }
+                    if (selectedTile && selectedTile.row === r && selectedTile.col === c) {
                         ctx.beginPath();
-                        ctx.rect(x+3, y+3, TILE_SIZE-8, TILE_SIZE-8);
+                        ctx.rect(x + 3, y + 3, TILE_SIZE - 8, TILE_SIZE - 8);
                         ctx.strokeStyle = "#ffb347";
-                        ctx.lineWidth = 3;
+                        ctx.lineWidth = 4;
                         ctx.stroke();
                     }
                 }
             }
-            for(let i=particles.length-1; i>=0; i--) {
-                let p = particles[i];
-                ctx.fillStyle = p.color;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-                ctx.fill();
-                p.x += p.vx;
-                p.y += p.vy;
-                p.life -= 0.03;
-                p.size *= 0.98;
-                if(p.life <= 0 || p.y > canvas.height+40) particles.splice(i,1);
-            }
+            
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(canvas.width, 0);
+            ctx.strokeStyle = "#ff6600";
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(0, TILE_SIZE);
+            ctx.lineTo(canvas.width, TILE_SIZE);
+            ctx.strokeStyle = "#ffaa44";
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 10]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = "#ffaa44";
+            ctx.font = "bold 11px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText("⬇ NEW SHAPES DROP SLOWLY FROM HERE ⬇", canvas.width / 2, TILE_SIZE - 5);
+            ctx.fillStyle = "#ff6600";
+            ctx.font = "bold 10px Arial";
+            ctx.fillText("← EMPTY ZONE →", canvas.width / 2, 12);
         }
         
-        function animate() { drawBoard(); requestAnimationFrame(animate); }
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+                if (w < 2 * r) r = w / 2;
+                if (h < 2 * r) r = h / 2;
+                this.moveTo(x + r, y);
+                this.lineTo(x + w - r, y);
+                this.quadraticCurveTo(x + w, y, x + w, y + r);
+                this.lineTo(x + w, y + h - r);
+                this.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+                this.lineTo(x + r, y + h);
+                this.quadraticCurveTo(x, y + h, x, y + h - r);
+                this.lineTo(x, y + r);
+                this.quadraticCurveTo(x, y, x + r, y);
+                return this;
+            };
+        }
         
         function handleCanvasClick(e) {
-            if(processingMove) return;
+            if (processingMove || isFalling || levelCompleteFlag) return;
             const rect = canvas.getBoundingClientRect();
             const scaleX = canvas.width / rect.width;
             const scaleY = canvas.height / rect.height;
             let clientX, clientY;
-            if(e.touches) {
+            if (e.touches) {
                 clientX = e.touches[0].clientX;
                 clientY = e.touches[0].clientY;
                 e.preventDefault();
@@ -1204,81 +1129,59 @@
             }
             let canvasX = (clientX - rect.left) * scaleX;
             let canvasY = (clientY - rect.top) * scaleY;
-            if(canvasX < 0 || canvasY < 0) return;
+            if (canvasX < 0 || canvasY < 0) return;
             let col = Math.floor(canvasX / TILE_SIZE);
             let row = Math.floor(canvasY / TILE_SIZE);
-            if(row >= ROWS || col >= COLS) return;
-            
-            if(grid[row][col] === 7) {
-                activatePrism(row, col);
+            if (row >= ROWS || col >= COLS) return;
+            if (grid[row][col] === 0 && row === 0) {
+                playSound(300, 0.1, 0.06);
+                showMessage("⬇ Wait for new shapes to fall! ⬇", true);
                 return;
             }
-            
-            if(selectedTile === null) {
+            if (selectedTile === null) {
                 selectedTile = { row, col };
                 drawBoard();
+                playSound(440, 0.08, 0.05);
             } else {
                 let r1 = selectedTile.row, c1 = selectedTile.col;
                 let r2 = row, c2 = col;
-                if(Math.abs(r1-r2) + Math.abs(c1-c2) === 1) {
-                    trySwap(r1,c1, r2,c2).then(() => {
+                if (Math.abs(r1 - r2) + Math.abs(c1 - c2) === 1) {
+                    performSwap(r1, c1, r2, c2).then(() => {
                         selectedTile = null;
                         drawBoard();
                     });
                 } else {
                     selectedTile = { row, col };
                     drawBoard();
+                    playSound(440, 0.08, 0.05);
                 }
             }
         }
         
-        if(!CanvasRenderingContext2D.prototype.roundRect) {
-            CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){
-                if(w<2*r) r=w/2;
-                if(h<2*r) r=h/2;
-                this.moveTo(x+r,y);
-                this.lineTo(x+w-r,y);
-                this.quadraticCurveTo(x+w,y,x+w,y+r);
-                this.lineTo(x+w,y+h-r);
-                this.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
-                this.lineTo(x+r,y+h);
-                this.quadraticCurveTo(x,y+h,x,y+h-r);
-                this.lineTo(x,y+r);
-                this.quadraticCurveTo(x,y,x+r,y);
-                return this;
-            };
-        }
+        function animate() { drawBoard(); requestAnimationFrame(animate); }
         
         function initGame() {
-            grid = generateNoMatchBoard();
+            initAudio();
+            if (currentUser) loadSavedData();
             levelTarget = getLevelTarget(currentLevel);
-            turnsLeft = getTurnsForLevel(currentLevel);
+            initGrid();
             updateUI();
             drawBoard();
+            animate();
         }
         
-        // Event listeners
         function initEventListeners() {
             canvas.addEventListener('click', handleCanvasClick);
             canvas.addEventListener('touchstart', (e) => { e.preventDefault(); handleCanvasClick(e); });
-            document.getElementById('resetGameBtn').addEventListener('click', resetGame);
-            document.getElementById('nextLevelBtn').addEventListener('click', advanceToNextLevel);
+            document.getElementById('resetBtn').addEventListener('click', resetGame);
+            document.getElementById('nextLevelBtn').addEventListener('click', nextLevel);
         }
         
-        // Pi Auth event listeners
-        document.getElementById('signInButton').addEventListener('click', async () => {
-            await authenticateWithPi();
-        });
+        document.getElementById('signInButton').addEventListener('click', async () => { await authenticateWithPi(); });
+        document.getElementById('manualSignOutBtn').addEventListener('click', () => { signOut(); });
         
-        document.getElementById('manualSignOutBtn').addEventListener('click', () => {
-            signOut();
-        });
-        
-        // Initialize everything
         async function bootstrap() {
-            initAudio();
             initEventListeners();
-            
             const hasSession = await checkExistingSession();
             if (!hasSession) {
                 showGameInterface(false);
@@ -1286,14 +1189,10 @@
             } else {
                 showGameInterface(true);
                 initGame();
-                animate();
             }
-            
-            if (!hasSession) {
-                setTimeout(() => {}, 1000);
-            } else {
-                animate();
-            }
+            document.body.addEventListener('touchstart', () => {
+                if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+            });
         }
         
         bootstrap();
